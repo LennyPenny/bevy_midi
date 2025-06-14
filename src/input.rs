@@ -150,7 +150,6 @@ fn reply(
                 input.ports = ports;
             }
             Reply::Error(e) => {
-                warn!("{}", e);
                 err.send(e);
             }
             Reply::Connected => {
@@ -344,12 +343,12 @@ fn debug(mut midi: EventReader<MidiData>) {
         let octave = pitch / 12;
         let key = KEY_RANGE[pitch as usize % 12];
 
-        if data.message.is_note_on() {
-            debug!("NoteOn: {}{:?} - Raw: {:?}", key, octave, data.message.msg);
-        } else if data.message.is_note_off() {
-            debug!("NoteOff: {}{:?} - Raw: {:?}", key, octave, data.message.msg);
-        } else {
-            debug!("Other: {:?}", data.message.msg);
-        }
+        // if data.message.is_note_on() {
+        //     debug!("NoteOn: {}{:?} - Raw: {:?}", key, octave, data.message.msg);
+        // } else if data.message.is_note_off() {
+        //     debug!("NoteOff: {}{:?} - Raw: {:?}", key, octave, data.message.msg);
+        // } else {
+        //     debug!("Other: {:?}", data.message.msg);
+        // }
     }
 }

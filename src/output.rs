@@ -164,7 +164,6 @@ fn reply(
                 output.ports = ports;
             }
             Reply::Error(e) => {
-                warn!("{}", e);
                 err.send(e);
             }
             Reply::Connected => {
